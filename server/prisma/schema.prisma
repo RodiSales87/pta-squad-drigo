@@ -25,7 +25,7 @@ model Test {
 
 model Matches {
   id  String   @id @default(uuid())
-  participants String? // Um array provavelmente seria melhor, mas o array não pode ser nulo, e os participantes podem ser nulos
+  participants String[]
   maxParticipants Int
   numParticipants Int
   link  String
