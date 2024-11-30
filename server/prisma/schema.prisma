@@ -22,3 +22,16 @@ model Test {
   name String
   age  Int
 }
+
+model Matches {
+  id  String   @id @default(uuid())
+  participants String? // Um array provavelmente seria melhor, mas o array não pode ser nulo, e os participantes podem ser nulos
+  maxParticipants Int
+  numParticipants Int
+  link  String
+  description String?
+  game String
+  date DateTime
+  hour DateTime
+  contactPlatform String
+}
