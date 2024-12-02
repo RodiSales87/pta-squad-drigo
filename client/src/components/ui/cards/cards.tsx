@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -9,8 +11,34 @@ import {
 import ParticipantsIcon from "@/assets/Participants.png";
 
 export default function ExampleCard() {
+  const [participants, setParticipants] = useState(6);
+  const threshold = 5;
+
+  const isCreator = true;
+
+  const eventDate = "2024-12-01";
+  const eventTime = "22:00";
+
+  const [day, month, year] = eventDate.split("/");
+  const eventDateISO = `${year}-${month}-${day}`;
+
+  const currentDate = new Date();
+  const eventDateTime = new Date(`${eventDate}T${eventTime}`);
+
+  const isEventExpired = currentDate > eventDateTime;
+
+  const cardColor = isCreator
+    ? "bg-[#D0F4E4]"
+    : isEventExpired
+    ? "bg-[#DEDEDE]"
+    : participants < threshold
+    ? "bg-[#D2EFFE]"
+    : "bg-[#D5C6FA]";
+
   return (
-    <Card className="w-[230px] h-[99px] mx-auto bg-white border shadow-lg text-[14px]">
+    <Card
+      className={`w-[230px] h-[99px] mx-auto border shadow-lg text-[14px] ${cardColor}`}
+    >
       <div className="ml-[16px] flex flex-col gap-[3px]">
         <div className="mt-[12px]">Jogo</div>
         <div className="mt-[2px]">Plataforma</div>
