@@ -1,17 +1,22 @@
 import { mailHandler } from "src/services";
+import { mailTemplate } from "src/services";
 import {Request, Response} from 'express';
 
 export async function sendMail(req: Request, res: Response)
 {
     try
     {
-        const {userName,userEmail,subjectText} = req.body;
+        const {userName,userEmail,subjectText,game,matchLink,date,time} = req.body;
 
         const emailConfig = {
             userName,
             userEmail,
+            game,
+            matchLink,
+            date,
+            time,
             subjectText,
-            html: `<h1>Olá ${userName}</h1>`
+            html: mailTemplate(userName,game,matchLink,date,time),
         }
 
         const mailResponse = await mailHandler (emailConfig);

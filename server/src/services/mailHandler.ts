@@ -7,6 +7,10 @@ dotenv.config();
     {
         userName: string,
         userEmail: string,
+        game : string,
+        matchLink: string,
+        date: string,
+        time: string,
         subjectText: string,
         html: string;
     })

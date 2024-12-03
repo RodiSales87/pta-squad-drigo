@@ -1,3 +1,4 @@
 import mailHandler from "./mailHandler";
+import { mailTemplate } from "./mailTemplate";
 
-export {mailHandler};
+export {mailHandler, mailTemplate};
