@@ -31,7 +31,7 @@ model Matches {
   link  String
   description String?
   game String
-  date DateTime
-  hour DateTime
+  date String
+  hour String
   contactPlatform String
 }
