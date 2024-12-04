@@ -2,6 +2,17 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import ParticipantsIcon from "@/assets/Participants.png";
+import { Barlow } from "next/font/google";
+
+const barlow300 = Barlow({
+  subsets: ["latin"],
+  weight: "300",
+});
+
+const barlow500 = Barlow({
+  subsets: ["latin"],
+  weight: "500",
+});
 
 export default function Cards() {
   const [gameName, setGameName] = useState("Minecraft");
@@ -35,11 +46,11 @@ export default function Cards() {
       onClick={(e) => e.stopPropagation()}
     >
       <Card
-        className={`w-[230px] h-[99px] mx-auto border shadow-lg text-[14px] text-[#292929] ${cardColor}`}
+        className={`w-[230px] h-[99px] mx-auto border shadow-lg text-[14px] text-[#292929] ${cardColor} ${barlow300.className}`}
       >
         <div className="ml-[16px] flex flex-col gap-[3px]">
-          <div className="mt-[12px] font-bold">{gameName}</div>
-          <div className="mt-[2px]">{meetingPlatform}</div>
+          <div className={`mt-[12px] ${barlow500.className}`}>{gameName}</div>
+          <div className="mt-[2px] ">{meetingPlatform}</div>
           <div className="flex flex-row justify-between items-end">
             <div>
               {new Date(eventDateTime).toLocaleDateString()} | {eventTime}
