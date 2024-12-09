@@ -19,12 +19,12 @@ export default function Cards() {
   const [participants, setParticipants] = useState(4);
   const [maxParticipants, setMaxParticipants] = useState(5);
 
-  const [eventDate, setEventDate] = useState("2024-12-02");
-  const [eventTime, setEventTime] = useState("23:52");
+  const [eventDate, setEventDate] = useState("2024-12-06");
+  const [eventTime, setEventTime] = useState("20:52");
 
   const [meetingPlatform, setMeetingPlatform] = useState("Dircord");
 
-  const isCreator = false;
+  const isCreator = true;
 
   const currentDate = new Date();
   const eventDateTime = new Date(`${eventDate}T${eventTime}`);

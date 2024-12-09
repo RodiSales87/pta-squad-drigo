@@ -1,7 +1,8 @@
 import Image from "next/image";
 
 import { LogoCITi } from "../assets";
-import Cards from "@/components/ui/cards/cards";
+import Details from "@/app/GameDetails/gameDetails";
+import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
     //     </p>
     //   </div>
     // </div>
-    <Cards></Cards>
+    //<Cards></Cards>
+    <Details></Details>
   );
 }
