@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { LogoCITi } from "../assets";
 import Details from "@/app/GameDetails/gameDetails";
-import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
@@ -18,7 +17,19 @@ export default function Home() {
     //     </p>
     //   </div>
     // </div>
-    //<Cards></Cards>
-    <Details></Details>
+    <div>
+      <Details
+        id="1"
+        game="Minecraft"
+        date="2025-07-06"
+        hour="10:00"
+        contactPlatform="Platform Name"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna."
+        link="http://example.com"
+        participants={["Player1", "Player2"]}
+        numParticipants={1}
+        maxParticipants={1}
+      />
+    </div>
   );
 }
