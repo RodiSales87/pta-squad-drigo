@@ -20,15 +20,15 @@ export default function Home() {
     <div>
       <Details
         id="1"
-        game="Minecraft"
-        date="2025-07-06"
+        game="GameName"
+        date="2023-07-06"
         hour="10:00"
         contactPlatform="Platform Name"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna."
         link="http://example.com"
         participants={["Player1", "Player2"]}
-        numParticipants={1}
-        maxParticipants={1}
+        numParticipants={2}
+        maxParticipants={25}
       />
     </div>
   );
