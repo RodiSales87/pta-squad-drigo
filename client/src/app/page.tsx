@@ -19,16 +19,16 @@ export default function Home() {
     // </div>
     <div>
       <Details
-        id="1"
+        id="Player4"
         game="GameName"
-        date="2023-07-06"
+        date="2025-07-06"
         hour="10:00"
         contactPlatform="Platform Name"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna."
-        link="http://example.com"
-        participants={["Player1", "Player2"]}
-        numParticipants={2}
-        maxParticipants={25}
+        link="https://www.youtube.com"
+        participants={["Player1", "Player2", "Player3"]}
+        numParticipants={3}
+        maxParticipants={4}
       />
     </div>
   );

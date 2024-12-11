@@ -35,22 +35,37 @@ export default function Details({
   numParticipants,
   maxParticipants,
 }: Match) {
-  const isUserInMatch = participants.includes(id);
-
-  //Teste
-  // const currentUserId = "user123";
-  // const [participantsa, setParticipants] = useState(["user123", "user456"]);
-  // const isUserInMatch = participantsa.includes(currentUserId);
-
   const currentDate = new Date();
   const eventDateTime = new Date(`${date}T${hour}`);
   const isEventExpired = currentDate > eventDateTime;
 
-  const cardColor = participants.includes(id)
+  // const isUserInMatch = participants.includes(id);
+
+  // const cardColor = participants.includes(id)
+  //   ? "bg-[#D0F4E4]"
+  //   : isEventExpired
+  //   ? "bg-[#DEDEDE]"
+  //   : numParticipants < maxParticipants
+  //   ? "bg-[#D2EFFE]"
+  //   : "bg-[#D5C6FA]";
+
+  const [currentParticipants, setCurrentParticipants] = useState(participants);
+
+  const handleButtonClick = () => {
+    if (isUserInMatch) {
+      setCurrentParticipants((prev) => prev.filter((user) => user !== id));
+    } else {
+      setCurrentParticipants((prev) => [...prev, id]);
+    }
+  };
+
+  const isUserInMatch = currentParticipants.includes(id);
+
+  const cardColor = isUserInMatch
     ? "bg-[#D0F4E4]"
     : isEventExpired
     ? "bg-[#DEDEDE]"
-    : numParticipants < maxParticipants
+    : currentParticipants.length < maxParticipants
     ? "bg-[#D2EFFE]"
     : "bg-[#D5C6FA]";
 
@@ -115,6 +130,9 @@ export default function Details({
                   <Button
                     variant="link"
                     className={`${barlow400.className} p-[10px] text-[#454545] text-[14px]`}
+                    onClick={() =>
+                      window.open(link, "_blank", "noopener,noreferrer")
+                    }
                   >
                     {link}
                   </Button>
@@ -123,8 +141,7 @@ export default function Details({
             </div>
           </div>
           <Button
-            variant="default"
-            size="default"
+            onClick={handleButtonClick}
             className={`w-[320px] h-[48px] rounded-[15px] text-[#F5F5F5] text-[20px] ${
               barlow700.className
             }  ${
@@ -138,17 +155,6 @@ export default function Details({
               boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
             }}
             disabled={isEventExpired || numParticipants >= maxParticipants}
-
-            //Teste
-            // onClick={() => {
-            //   if (isUserInMatch) {
-            //     setParticipants((prev) =>
-            //       prev.filter((id) => id !== currentUserId)
-            //     ); // Remover usuário
-            //   } else {
-            //     setParticipants((prev) => [...prev, currentUserId]); // Adicionar usuário
-            //   }
-            // }}
           >
             {isEventExpired || numParticipants >= maxParticipants
               ? "Entrar"
@@ -170,12 +176,12 @@ export default function Details({
             className={`${barlow500.className} text-[#000000] text-[24px] flex flex-row gap-[100px] ml-[20px]`}
           >
             <div>Participantes</div>
-            <div>{`${numParticipants}/${maxParticipants}`}</div>
+            <div>{`${currentParticipants.length}/${maxParticipants}`}</div>
           </div>
           <div
-            className={`${barlow400.className} text-[#454545] text-[16px] flex flex-col rounded-[16px] w-[331px] h-[678px] p-[30px] gap-[14px] ${cardColor}`}
+            className={`${barlow400.className} text-[#454545] text-[16px] flex flex-col rounded-[16px] w-[331px] h-[678px] p-[30px] gap-[14px] ${cardColor} overflow-y-auto`}
           >
-            {participants.map((participant, index) => (
+            {currentParticipants.map((participant, index) => (
               <div key={index} className="flex flex-row items-center gap-[8px]">
                 <img
                   src={UserCircleIcon.src}
