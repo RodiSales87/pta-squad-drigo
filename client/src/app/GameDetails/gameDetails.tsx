@@ -39,16 +39,6 @@ export default function Details({
   const eventDateTime = new Date(`${date}T${hour}`);
   const isEventExpired = currentDate > eventDateTime;
 
-  // const isUserInMatch = participants.includes(id);
-
-  // const cardColor = participants.includes(id)
-  //   ? "bg-[#D0F4E4]"
-  //   : isEventExpired
-  //   ? "bg-[#DEDEDE]"
-  //   : numParticipants < maxParticipants
-  //   ? "bg-[#D2EFFE]"
-  //   : "bg-[#D5C6FA]";
-
   const [currentParticipants, setCurrentParticipants] = useState(participants);
 
   const handleButtonClick = () => {
