@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { LogoCITi } from "../assets";
 import Details from "@/app/GameDetails/gameDetails";
+import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
@@ -27,6 +28,14 @@ export default function Home() {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu rutrum mauris, quis ullamcorper urna."
         link="https://www.youtube.com"
         participants={["Player1", "Player2", "Player3"]}
+        numParticipants={3}
+        maxParticipants={4}
+      />
+      <Cards
+        game="GameName"
+        date="2025-07-06"
+        hour="10:00"
+        contactPlatform="Platform Name"
         numParticipants={3}
         maxParticipants={4}
       />
