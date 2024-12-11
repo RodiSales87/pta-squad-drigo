@@ -14,27 +14,34 @@ const barlow500 = Barlow({
   weight: "500",
 });
 
-export default function Cards() {
-  const [gameName, setGameName] = useState("Minecraft");
-  const [participants, setParticipants] = useState(4);
-  const [maxParticipants, setMaxParticipants] = useState(5);
+interface Card {
+  game: string;
+  date: string;
+  hour: string;
+  contactPlatform: string;
+  numParticipants: number;
+  maxParticipants: number;
+}
 
-  const [eventDate, setEventDate] = useState("2024-12-02");
-  const [eventTime, setEventTime] = useState("23:52");
-
-  const [meetingPlatform, setMeetingPlatform] = useState("Dircord");
-
-  const isCreator = false;
+export default function Cards({
+  game,
+  date,
+  hour,
+  contactPlatform,
+  numParticipants,
+  maxParticipants,
+}: Card) {
+  const isUserInMatch = false;
 
   const currentDate = new Date();
-  const eventDateTime = new Date(`${eventDate}T${eventTime}`);
+  const eventDateTime = new Date(`${date}T${hour}`);
   const isEventExpired = currentDate > eventDateTime;
 
-  const cardColor = isCreator
+  const cardColor = isUserInMatch
     ? "bg-[#D0F4E4]"
     : isEventExpired
     ? "bg-[#DEDEDE]"
-    : participants < maxParticipants
+    : numParticipants < maxParticipants
     ? "bg-[#D2EFFE]"
     : "bg-[#D5C6FA]";
 
@@ -49,14 +56,14 @@ export default function Cards() {
         className={`w-[230px] h-[99px] mx-auto border shadow-lg text-[14px] text-[#292929] ${cardColor} ${barlow300.className}`}
       >
         <div className="ml-[16px] flex flex-col gap-[3px]">
-          <div className={`mt-[12px] ${barlow500.className}`}>{gameName}</div>
-          <div className="mt-[2px] ">{meetingPlatform}</div>
+          <div className={`mt-[12px] ${barlow500.className}`}>{game}</div>
+          <div className="mt-[2px] ">{contactPlatform}</div>
           <div className="flex flex-row justify-between items-end">
             <div>
-              {new Date(eventDateTime).toLocaleDateString()} | {eventTime}
+              {new Date(eventDateTime).toLocaleDateString()} | {hour}
             </div>
             <div className="flex flex-row mr-[16px] items-end gap-[3px]">
-              {participants}
+              {numParticipants}
               <img
                 src={ParticipantsIcon.src}
                 alt="Participants"
