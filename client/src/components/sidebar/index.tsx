@@ -1,46 +1,44 @@
 import React from 'react';
 import Image from "next/image";
-import { logoAzul } from '@/assets';
+import { GameController, logoAzul, UserCircle } from '@/assets';
+
 
 export default function Sidebar() {
   return (
     <div className="flex">
       {/* Barra Lateral */}
-      <aside className="h-screen w-64 bg-gray-900 text-white flex flex-col items-center py-8">
+      <aside className="h-screen w-64 bg-blue-400 text-white flex flex-col items-center py-8">
         {/* Logotipo */}
         
-        <Image src={logoAzul} alt="Citi" className="w-24 h-24 mb-10" />
+        <Image src={logoAzul} alt="Citi" className="w-35 h-35 mb-8" />
 
         {/* Botões */}
-        <button className="w-48 py-3 mb-4 text-center bg-blue-600 hover:bg-blue-700 rounded-md transition">
-          Botão 1
+        
+        <button className="flex w-48 py-1 mb-4 bg-blue-300 text-white font-bold hover:bg-blue-500 rounded-md transition">
+        
+        <Image src={GameController} alt="Ícone" className="w-9 h-9 mr-2 ml-2" />
+        Explorar partidas
+        
         </button>
-        <button className="w-48 py-3 text-center bg-blue-600 hover:bg-blue-700 rounded-md transition">
-          Botão 2
+        
+        <button className="flex w-48 py-1 mb-4 bg-blue-300 text-white font-bold hover:bg-blue-500 rounded-md transition">
+        
+        <Image src={UserCircle} alt="Ícone" className="w-9 h-9  mr-2 ml-2" />
+        
+        Perfil
+      
         </button>
       </aside>
 
       <div className="flex-1 flex flex-col">
         {/* Barra Superior */}
-        <header className="w-full h-16 bg-gray-800 text-white flex items-center justify-between px-6 shadow-md">
-          <h1 className="text-xl font-bold">Meu Sistema</h1>
+        <header className="w-full h-16  text-white flex items-center justify-between px-6 shadow-md">
+          
 
           <nav>
             <ul className="flex gap-4">
               <li>
-                <a href="#" className="hover:underline">
-                  Link 1
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Link 2
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Link 3
-                </a>
+                
               </li>
             </ul>
           </nav>
