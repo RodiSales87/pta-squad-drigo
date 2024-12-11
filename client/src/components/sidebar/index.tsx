@@ -14,13 +14,16 @@ export default function Sidebar() {
 
         {/* Botões */}
         
+        <a href="https://www.youtube.com/">
         <button className="flex w-48 py-1 mb-4 bg-blue-300 text-white font-bold hover:bg-blue-500 rounded-md transition">
         
         <Image src={GameController} alt="Ícone" className="w-9 h-9 mr-2 ml-2" />
         Explorar partidas
         
         </button>
+        </a>
         
+        <a href="https://www.youtube.com/">
         <button className="flex w-48 py-1 mb-4 bg-blue-300 text-white font-bold hover:bg-blue-500 rounded-md transition">
         
         <Image src={UserCircle} alt="Ícone" className="w-9 h-9  mr-2 ml-2" />
@@ -28,6 +31,8 @@ export default function Sidebar() {
         Perfil
       
         </button>
+        </a>
+
       </aside>
 
       <div className="flex-1 flex flex-col">
