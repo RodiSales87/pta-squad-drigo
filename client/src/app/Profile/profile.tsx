@@ -72,22 +72,56 @@ export default function Profile() {
           </div>
           <div>
             {activeTab === "partidas" ? (
-              <div className="flex flex-col gap-[10px]">
-                <Cards
-                  game="Minecraft"
-                  date="2024-12-12"
-                  hour="20:00"
-                  contactPlatform="Discord"
-                  numParticipants={4}
-                  maxParticipants={5}
-                />
+              <div className="flex flex-col gap-[100px]">
+                {/* Partidas Abertas */}
+                <div className="flex flex-col">
+                  <div className="flex flex-row items-center gap-[10px]">
+                    <div className="text-[16px] font-bold">
+                      Partidas abertas
+                    </div>
+                    <input
+                      type="date"
+                      className="bg-[#FFFFFF] border border-[#D9D9D9] rounded-[4px] px-[15px] text-[#292929] text-[16px] w-[164px] h-[52px]"
+                    />
+                    <input
+                      type="date"
+                      className="bg-[#FFFFFF] border border-[#D9D9D9] rounded-[4px] px-[15px] text-[#292929] text-[16px] w-[164px] h-[52px]"
+                    />
+                  </div>
+                  <div className="mt-[10px]">
+                    {username
+                      ? `Nenhuma partida encontrada para ${username}`
+                      : "Não há partidas abertas"}
+                  </div>
+                </div>
+
+                {/* Partidas Fechadas */}
+                <div className="flex flex-col">
+                  <div className="text-[16px] font-bold">Partidas fechadas</div>
+                  <div className="mt-[10px]">Não há partidas fechadas</div>
+                </div>
               </div>
             ) : (
-              <div className="text-[#454545]">
-                Aqui está o histórico das suas partidas.
+              <div className="flex flex-col">
+                {/* Histórico */}
+                <div className="flex flex-row items-center gap-[10px]">
+                  <div className="text-[16px] font-bold">
+                    Histórico de partidas
+                  </div>
+                  <input
+                    type="date"
+                    className="bg-[#FFFFFF] border border-[#D9D9D9] rounded-[4px] px-[15px] text-[#292929] text-[16px] w-[164px] h-[52px]"
+                  />
+                  <input
+                    type="date"
+                    className="bg-[#FFFFFF] border border-[#D9D9D9] rounded-[4px] px-[15px] text-[#292929] text-[16px] w-[164px] h-[52px]"
+                  />
+                </div>
+                <div className="mt-[10px]">Não há partidas</div>
               </div>
             )}
           </div>
+          <Button>+</Button>
         </div>
       </div>
     </div>
