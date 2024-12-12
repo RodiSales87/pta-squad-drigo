@@ -5,6 +5,7 @@ import {useForm, SubmitHandler} from "react-hook-form";
 import { Barlow } from "next/font/google";
 import ArrowBack from "../../assets/arrowback.svg"
 import Image from "next/image"
+import Sidebar from "@/components/sidebar";
 
 const barlow400 = Barlow({
     subsets: ["latin"],
@@ -41,9 +42,9 @@ export default function App(){
     }
 
     return (
-        <body className = "bg-[#EBEDF3]">
+        <body className = "bg-[#EBEDF3]">  
             <form onSubmit={handleSubmit(printData)}>
-                <div id="main-container" className = "w-[1024px] ml-[344px] mt-[92px]">
+                <div id="main-container" className = "w-[1024px] ml-[480px] mt-[92px]">
                     <div id="match-create-container" className={`${barlow700.className} text-[36px]`}>
                         <div id="create-match-text" className = "flex">
                             <a className = "mt-[18px]" href = "https://youtube.com">
@@ -89,7 +90,7 @@ export default function App(){
                                 <textarea {...register('description')} id="description" placeholder="Descrição" rows = {3} className = {`${barlow400.className} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 `} />
                             </div>
 
-                            <button type="submit" className = "bg-[#51E678] text-white rounded-md w-[320px] h-[48px] text-[20px] mt-[292px] ml-[728px]">Criar partida</button>
+                            <button type="submit" className = "bg-[#51E678] text-white rounded-xl w-[320px] h-[48px] text-[20px] mt-[292px] ml-[728px] drop-shadow-2xl">Criar partida</button>
                         </div>
                     </div>
                 </div>
