@@ -4,12 +4,12 @@ class MatchController {
   constructor(private readonly citi = new Citi("Match")) {}
 
   create = async (request, response) => {
-    const { teamA, teamB, date, score } = request.body;
+    const { game, date, hour, contactPlatform, description, link, maxParticipants } = request.body;
 
-    const isAnyUndefined = this.citi.areValuesUndefined(teamA, teamB, date, score);
+    const isAnyUndefined = this.citi.areValuesUndefined(game, date, hour, contactPlatform, description, link, maxParticipants);
     if (isAnyUndefined) return response.status(400).send();
 
-    const newMatch = { teamA, teamB, date, score };
+    const newMatch = { game, date, hour, contactPlatform, description, link, maxParticipants };
     const { httpStatus, message } = await this.citi.insertIntoDatabase(newMatch);
 
     return response.status(httpStatus).send({ message });
@@ -37,11 +37,11 @@ class MatchController {
     return response.status(httpStatus).send({ messageFromDelete });
   };
 
-  update = async (request, response) => {
+ update = async (request, response) => {
     const { id } = request.params;
-    const { teamA, teamB, date, score } = request.body;
+    const { game, date, hour, contactPlatform, description, link, maxParticipants } = request.body;
 
-    const updatedValues = { teamA, teamB, date, score };
+    const updatedValues = { game, date, hour, contactPlatform, description, link, maxParticipants };
 
     const { httpStatus, messageFromUpdate } = await this.citi.updateValue(id, updatedValues);
 
