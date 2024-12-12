@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { LogoCITi } from "../assets";
-import Cards from "@/components/ui/cards/cards";
+import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
