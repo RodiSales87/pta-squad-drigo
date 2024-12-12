@@ -32,9 +32,10 @@ type FormData =
     
 }
 
+
 export default function App(){
 
-    const { register, handleSubmit} = useForm<FormData>()
+    const { register, handleSubmit, setValue} = useForm<FormData>()
 
     const printData: SubmitHandler<FormData> = (data) =>
     {
@@ -67,12 +68,12 @@ export default function App(){
 
                             <div id="date-input" className = "col-start-1 col-span-2">
                                 <label htmlFor="date" className="block text-sm/6 font-medium text-gray-900">Data da partida</label>
-                                <input {...register('date')} id="date" placeholder="00/00/0000" className = {`${barlow400.className} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 `} />
+                                <input {...register('date')} id="date" placeholder="00/00/0000" type = "date" className = {`${barlow400.className} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 `} />
                             </div>
 
                             <div id="hour-input" className = "col-start-3 col-span-2">
                                 <label htmlFor="hour" className="block text-sm/6 font-medium text-gray-900">Horário da partida</label>
-                                <input {...register('hour')} id="hour" placeholder="00:00" className = {`${barlow400.className} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 `}/>
+                                <input {...register('hour')} id="hour" placeholder="00:00" type="time" className = {`${barlow400.className} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 `}/>
                             </div>
 
                             <div id="maxparticipants-input" className = "col-start-5 col-span-2">
