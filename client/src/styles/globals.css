@@ -6,7 +6,9 @@
   * {
     @apply box-border m-0 p-0;
   }
-  html, body, #__next {
+  html,
+  body,
+  #__next {
     @apply h-full;
   }
   body {
@@ -75,4 +77,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d2effe;
+  border-radius: 2.5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
