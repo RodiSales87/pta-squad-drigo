@@ -5,7 +5,7 @@ import { GameController, logoAzul, UserCircle } from '@/assets';
 
 export default function Sidebar() {
   return (
-    <div className="flex">
+    <div className="flex fixed left-0 top-0 h-full z-10" >
       {/* Barra Lateral */}
       <aside className="h-screen w-64 bg-blue-400 text-white flex flex-col items-center py-8">
         {/* Logotipo */}
@@ -35,21 +35,6 @@ export default function Sidebar() {
 
       </aside>
 
-      <div className="flex-1 flex flex-col">
-        {/* Barra Superior */}
-        <header className="w-full h-16  text-white flex items-center justify-between px-6 shadow-md">
-          
-
-          <nav>
-            <ul className="flex gap-4">
-              <li>
-                
-              </li>
-            </ul>
-          </nav>
-        </header>
-
-      </div>
     </div>
   );
 }
