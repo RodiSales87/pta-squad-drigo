@@ -1,35 +1,37 @@
 import { Citi } from "../global";
+import { Request, Response } from "express";
+
 
 class MatchController {
-  constructor(private readonly citi = new Citi("Match")) {}
+  constructor(private readonly citi = new Citi("Matches")) {}
 
-  create = async (request, response) => {
-    const { teamA, teamB, date, score } = request.body;
+  create = async (request: Request, response: Response) => {
+    const { game, date, hour, contactPlatform, description, link, maxParticipants } = request.body;
 
-    const isAnyUndefined = this.citi.areValuesUndefined(teamA, teamB, date, score);
+    const isAnyUndefined = this.citi.areValuesUndefined(game, date, hour, contactPlatform, description, link, maxParticipants);
     if (isAnyUndefined) return response.status(400).send();
 
-    const newMatch = { teamA, teamB, date, score };
+    const newMatch = { game, date, hour, contactPlatform, description, link, maxParticipants, numParticipants: request.body.numParticipants, participants: request.body.participants };
     const { httpStatus, message } = await this.citi.insertIntoDatabase(newMatch);
 
     return response.status(httpStatus).send({ message });
   };
 
-  get = async (request, response) => {
+  get = async (request: Request, response: Response) => {
     const { httpStatus, values } = await this.citi.getAll();
 
     return response.status(httpStatus).send(values);
   };
 
-  getById = async (request, response) => {
+  getById = async (request: Request, response: Response) => {
     const { id } = request.params;
 
-    const { httpStatus, value } = await this.citi.getValueById(id);
+    const { httpStatus, value } = await this.citi.findById(id);
 
     return response.status(httpStatus).send(value);
   };
 
-  delete = async (request, response) => {
+  delete = async (request: Request, response: Response) => {
     const { id } = request.params;
 
     const { httpStatus, messageFromDelete } = await this.citi.deleteValue(id);
@@ -37,7 +39,7 @@ class MatchController {
     return response.status(httpStatus).send({ messageFromDelete });
   };
 
-  update = async (request, response) => {
+  update = async (request: Request, response: Response) => {
     const { id } = request.params;
     const { teamA, teamB, date, score } = request.body;
 
@@ -48,10 +50,10 @@ class MatchController {
     return response.status(httpStatus).send({ messageFromUpdate });
   };
 
-  readByUsername = async (request, response) => {
+  readByUsername = async (request: Request, response: Response) => {
     const { username } = request.params;
 
-    const { httpStatus, values } = await this.citi.getValuesByField("username", username);
+    const { httpStatus, values } = await this.citi.getAll();
 
     return response.status(httpStatus).send(values);
   };
