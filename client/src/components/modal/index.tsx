@@ -51,7 +51,7 @@ const barlow400 = Barlow({
                   </div>
 
 
-                  <button type="submit" className = "bg-[#51E678] text-white rounded-xl w-full h-[48px] text-[20px] mt-[32px] drop-shadow-2xl" onClick={() => alert("Informações printadas no console!")}>Entrar</button>
+                  <button type="submit" className = "bg-[#51E678] text-white rounded-xl w-full h-[48px] text-[20px] mt-[32px] drop-shadow-2xl">Entrar</button>
                 </form>
 
                 
