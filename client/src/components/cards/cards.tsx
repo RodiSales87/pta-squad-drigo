@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Card } from "@/components/card";
 import ParticipantsIcon from "@/assets/Participants.png";
 import { Barlow } from "next/font/google";
+import Sidebar from "@/components/sidebar";
 
 const barlow300 = Barlow({
   subsets: ["latin"],
