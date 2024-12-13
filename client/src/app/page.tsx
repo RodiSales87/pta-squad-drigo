@@ -3,6 +3,7 @@ import Image from "next/image";
 import { LogoCITi } from "../assets";
 import Profile from "@/app/Profile/profile";
 import Details from "@/app/GameDetails/gameDetails";
+import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
@@ -19,19 +20,28 @@ export default function Home() {
     //   </div>
     // </div>
 
-    <Profile />
-
     // <Details
-    //   id="1"
+    //   id="4"
     //   game="Valorant"
-    //   date="2022-11-11"
+    //   date="2025-11-11"
     //   hour="12:00"
     //   contactPlatform="Discord"
     //   description="Vamos jogar Valorant?"
-    //   link="https://discord.gg/valorant"
+    //   link="https://google.com"
     //   participants={["1", "2", "3"]}
     //   numParticipants={3}
-    //   maxParticipants={5}
+    //   maxParticipants={4}
     // />
+
+    // <Cards
+    //   game="Valorant"
+    //   date="2025-11-11"
+    //   hour="12:00"
+    //   contactPlatform="Discord"
+    //   numParticipants={3}
+    //   maxParticipants={4}
+    // />
+
+    <Profile />
   );
 }

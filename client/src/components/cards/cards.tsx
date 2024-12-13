@@ -51,9 +51,10 @@ export default function Cards({
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
+      className="block w-[230px] h-[99px] mx-auto"
     >
       <Card
-        className={`w-[230px] h-[99px] mx-auto border shadow-lg text-[14px] text-[#292929] ${cardColor} ${barlow300.className}`}
+        className={`w-full h-full border shadow-lg text-[14px] text-[#292929] ${cardColor} ${barlow300.className}`}
       >
         <div className="ml-[16px] flex flex-col gap-[3px]">
           <div className={`mt-[12px] ${barlow500.className}`}>{game}</div>
