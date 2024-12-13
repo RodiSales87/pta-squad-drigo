@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import UserCircleIcon from "@/assets/UserCircle.png";
 import { Barlow } from "next/font/google";
 import { Button } from "@/components/ui/button";
+import Sidebar from "@/components/sidebar";
+import Topbar from "@/components/topbar";
 
 const barlow400 = Barlow({ subsets: ["latin"], weight: "400" });
 
@@ -61,129 +63,138 @@ export default function Details({
 
   return (
     <>
-      <div className="bg-[#F5F5F5] flex flex-row gap-[64px]">
-        <div className="ml-[344px] text-[#292929] flex flex-col gap-[80px] items-center">
-          <div>
-            <div className="flex flex-col gap-[10px]">
-              <div className="flex flex-col mt-[176px]">
-                <div
-                  className={`${barlow400.className} text-[#6800E4] text-[14px]`}
-                >
-                  Partidas
-                </div>
-                <div
-                  className={`${barlow500.className} text-[#000000] text-[28px]`}
-                >
-                  {game}
-                </div>
-              </div>
-              <div className="flex flex-col gap-[5px]">
-                <div
-                  className={`${barlow400.className} text-[#454545] text-[16px]`}
-                >
-                  {`${eventDateTime.toLocaleDateString(
-                    "pt-BR"
-                  )}   |   ${eventDateTime.toLocaleTimeString("pt-BR", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}`}
-                </div>
-                <div
-                  className={`${barlow400.className} text-[#454545] text-[16px]`}
-                >
-                  {contactPlatform}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col mt-[40px] gap-[25px]">
-              <div className="flex flex-col gap-[5px]">
-                <div
-                  className={`${barlow500.className} text-[#000000] text-[16px]`}
-                >
-                  Descrição:
-                </div>
-                <div className="w-[592px] rounded-[4px] bg-white bg-opacity-50">
+      <div className="flex flex-1 flex-col h-full justify-around items-center bg-pink-200">
+            <div >
+              <Topbar />
+              <div className="relative flex flex-1">
+                <Sidebar />
+                <div className="bg-[#F5F5F5] flex flex-row gap-[64px]">
+                  <div className="ml-[344px] text-[#292929] flex flex-col gap-[80px] items-center">
+                    <div>
+                      <div className="flex flex-col gap-[10px]">
+                        <div className="flex flex-col mt-[176px]">
+                          <div
+                            className={`${barlow400.className} text-[#6800E4] text-[14px]`}
+                          >
+                            Partidas
+                          </div>
+                          <div
+                            className={`${barlow500.className} text-[#000000] text-[28px]`}
+                          >
+                            {game}
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[5px]">
+                          <div
+                            className={`${barlow400.className} text-[#454545] text-[16px]`}
+                          >
+                            {`${eventDateTime.toLocaleDateString(
+                              "pt-BR"
+                            )}   |   ${eventDateTime.toLocaleTimeString("pt-BR", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}`}
+                          </div>
+                          <div
+                            className={`${barlow400.className} text-[#454545] text-[16px]`}
+                          >
+                            {contactPlatform}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col mt-[40px] gap-[25px]">
+                        <div className="flex flex-col gap-[5px]">
+                          <div
+                            className={`${barlow500.className} text-[#000000] text-[16px]`}
+                          >
+                            Descrição:
+                          </div>
+                          <div className="w-[592px] rounded-[4px] bg-white bg-opacity-50">
+                            <div
+                              className={`${barlow400.className} flex p-[17px] text-[#454545] text-[14px]`}
+                            >
+                              {description}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col gap-[8px]">
+                          <div
+                            className={`${barlow500.className} text-[#000000] text-[16px]`}
+                          >
+                            Link:
+                          </div>
+                          <div className="w-[592px] rounded-[4px] bg-white bg-opacity-50">
+                            <Button
+                              variant="link"
+                              className={`${barlow400.className} p-[10px] text-[#454545] text-[14px]`}
+                              onClick={() =>
+                                window.open(link, "_blank", "noopener,noreferrer")
+                              }
+                            >
+                              {link}
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <Button
+                      onClick={handleButtonClick}
+                      className={`w-[320px] h-[48px] rounded-[15px] text-[#F5F5F5] text-[20px] ${
+                        barlow700.className
+                      }  ${
+                        isEventExpired || numParticipants >= maxParticipants
+                          ? "bg-[#DEDEDE] cursor-not-allowed"
+                          : isUserInMatch
+                          ? "bg-[#EA394A] hover:bg-[#C42C3B]"
+                          : "bg-[#51E678] hover:bg-[#3ABF5C]"
+                      }`}
+                      style={{
+                        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+                      }}
+                      disabled={isEventExpired || numParticipants >= maxParticipants}
+                    >
+                      {isEventExpired || numParticipants >= maxParticipants
+                        ? "Entrar"
+                        : isUserInMatch
+                        ? "Sair"
+                        : "Entrar"}
+                    </Button>
+                  </div>
                   <div
-                    className={`${barlow400.className} flex p-[17px] text-[#454545] text-[14px]`}
+                    className="flex flex-col items-center w-[400px] h-[782px] mt-[169px] rounded-[16px] gap-[20px] p-[20px]"
+                    style={{
+                      boxShadow: `
+                        0px 1px 3px 1px rgba(0, 0, 0, 0.15), 
+                        0px 1px 2px 0px rgba(0, 0, 0, 0.30)
+                      `,
+                    }}
                   >
-                    {description}
+                    <div
+                      className={`${barlow500.className} text-[#000000] text-[24px] flex flex-row gap-[100px] ml-[20px]`}
+                    >
+                      <div>Participantes</div>
+                      <div>{`${currentParticipants.length}/${maxParticipants}`}</div>
+                    </div>
+                    <div
+                      className={`${barlow400.className} text-[#454545] text-[16px] flex flex-col rounded-[16px] w-[331px] h-[678px] p-[30px] gap-[14px] ${cardColor} overflow-y-auto`}
+                    >
+                      {currentParticipants.map((participant, index) => (
+                        <div key={index} className="flex flex-row items-center gap-[8px]">
+                          <img
+                            src={UserCircleIcon.src}
+                            alt="UserCircle"
+                            className="w-[26px] h-[26px]"
+                          />
+                          {participant}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-[8px]">
-                <div
-                  className={`${barlow500.className} text-[#000000] text-[16px]`}
-                >
-                  Link:
-                </div>
-                <div className="w-[592px] rounded-[4px] bg-white bg-opacity-50">
-                  <Button
-                    variant="link"
-                    className={`${barlow400.className} p-[10px] text-[#454545] text-[14px]`}
-                    onClick={() =>
-                      window.open(link, "_blank", "noopener,noreferrer")
-                    }
-                  >
-                    {link}
-                  </Button>
-                </div>
+                
               </div>
             </div>
           </div>
-          <Button
-            onClick={handleButtonClick}
-            className={`w-[320px] h-[48px] rounded-[15px] text-[#F5F5F5] text-[20px] ${
-              barlow700.className
-            }  ${
-              isEventExpired || numParticipants >= maxParticipants
-                ? "bg-[#DEDEDE] cursor-not-allowed"
-                : isUserInMatch
-                ? "bg-[#EA394A] hover:bg-[#C42C3B]"
-                : "bg-[#51E678] hover:bg-[#3ABF5C]"
-            }`}
-            style={{
-              boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-            }}
-            disabled={isEventExpired || numParticipants >= maxParticipants}
-          >
-            {isEventExpired || numParticipants >= maxParticipants
-              ? "Entrar"
-              : isUserInMatch
-              ? "Sair"
-              : "Entrar"}
-          </Button>
-        </div>
-        <div
-          className="flex flex-col items-center w-[400px] h-[782px] mt-[169px] rounded-[16px] gap-[20px] p-[20px]"
-          style={{
-            boxShadow: `
-              0px 1px 3px 1px rgba(0, 0, 0, 0.15), 
-              0px 1px 2px 0px rgba(0, 0, 0, 0.30)
-            `,
-          }}
-        >
-          <div
-            className={`${barlow500.className} text-[#000000] text-[24px] flex flex-row gap-[100px] ml-[20px]`}
-          >
-            <div>Participantes</div>
-            <div>{`${currentParticipants.length}/${maxParticipants}`}</div>
-          </div>
-          <div
-            className={`${barlow400.className} text-[#454545] text-[16px] flex flex-col rounded-[16px] w-[331px] h-[678px] p-[30px] gap-[14px] ${cardColor} overflow-y-auto`}
-          >
-            {currentParticipants.map((participant, index) => (
-              <div key={index} className="flex flex-row items-center gap-[8px]">
-                <img
-                  src={UserCircleIcon.src}
-                  alt="UserCircle"
-                  className="w-[26px] h-[26px]"
-                />
-                {participant}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </>
   );
 }
