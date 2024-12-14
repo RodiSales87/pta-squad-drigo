@@ -1,6 +1,7 @@
 import Cards from "@/components/cards/cards";
 import Sidebar from "@/components/sidebar";
 import { Barlow } from "next/font/google";
+import Link from "next/link";
 
 const barlow400 = Barlow({ subsets: ["latin"], weight: "400" });
 
@@ -204,7 +205,7 @@ export default function matchlist()
 
             </div>
                 <div className = "w-[60px] h-[60px] bg-[#51E678] rounded-lg text-white text-[40px] flex justify-center items-center fixed bottom-0 right-0 mr-[400px] mb-[40px]">
-                    <a href = "https://youtube.com" className = {`${barlow700.className} `}>+</a>
+                    <Link href = "/forms"  className = {`${barlow700.className} `}>+</Link>
                 </div>
                 
             </div>
