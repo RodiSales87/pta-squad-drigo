@@ -1,4 +1,5 @@
 import Cards from "@/components/cards/cards";
+import Sidebar from "@/components/sidebar";
 import { Barlow } from "next/font/google";
 
 const barlow400 = Barlow({ subsets: ["latin"], weight: "400" });
@@ -175,6 +176,7 @@ export default function matchlist()
 {
     return(
         <div id = "screen" className = "bg-[#F5F5F5] w-screen h-screen">
+          <Sidebar />
             <div id = "main-container " className = "ml-[452px] pt-[64px]">
                 <p id = "title" className ={`${barlow400.className} text-[28px] mb-[32px]`}>Próximas partidas</p>
                 <div id = "matches-grid" className = "grid grid-cols-4 gap-y-[32px] w-[1080px]">

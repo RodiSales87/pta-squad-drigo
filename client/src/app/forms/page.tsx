@@ -43,7 +43,8 @@ export default function App(){
     }
 
     return (
-        <body className = "bg-[#EBEDF3]">  
+        <body className = "bg-[#EBEDF3]">
+            <Sidebar />
             <form onSubmit={handleSubmit(printData)}>
                 <div id="main-container" className = "w-[1024px] ml-[480px] mt-[92px]">
                     <div id="match-create-container" className={`${barlow700.className} text-[36px]`}>
