@@ -51,7 +51,7 @@ export default function Cards({
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
-      className="block w-[230px] h-[99px] mx-auto"
+      className="block w-[230px] h-[99px]"
     >
       <Card
         className={`w-full h-full border shadow-lg text-[14px] text-[#292929] ${cardColor} ${barlow300.className}`}
