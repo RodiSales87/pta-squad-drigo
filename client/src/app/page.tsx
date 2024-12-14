@@ -1,9 +1,6 @@
 import Image from "next/image";
 
 import { LogoCITi } from "../assets";
-import Profile from "@/app/Profile/profile";
-import Details from "@/app/GameDetails/gameDetails";
-import Cards from "@/components/cards/cards";
 
 export default function Home() {
   return (
